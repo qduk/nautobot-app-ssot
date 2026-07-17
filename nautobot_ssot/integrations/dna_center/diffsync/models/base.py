@@ -111,7 +111,7 @@ class Device(DiffSyncModel):
 class VirtualChassis(DiffSyncModel):
     """Diffsync model for VirtualChassis."""
 
-    _modelname = "virtualchassis"
+    _modelname = "virtual_chassis"
     _identifiers = ("name",)
     _attributes = ("master__name",)
     _children = {}

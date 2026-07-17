@@ -358,7 +358,7 @@ class DnaCenterAdapter(Adapter):
             vendor = "Cisco"
             platform = self.get_device_platform(dev)
             ## Device count for managing stacks
-            deviceCount += platform.count(",")
+            deviceCount = len(dev["platformId"].split(","))
             if deviceCount > 1:
                 stackDetails = self.conn.get_stack_detail(dev["id"])
             if not PLUGIN_CFG.get("dna_center_import_merakis") and platform == "cisco_meraki":
@@ -417,7 +417,9 @@ class DnaCenterAdapter(Adapter):
                 }
                 self.failed_import_devices.append(dev)
                 continue
+            print(loc_data)
             self.load_device_location_tree(dev_details, loc_data)
+            raise Exception()
             # Hook into this, if I > 1 then call dnac stack_details, utilize s/n from there to append M{I}.
             # Master should get all stack unique interfaces, otherwise interfaces get associated with their stack
             for i in range(deviceCount):
@@ -503,6 +505,9 @@ class DnaCenterAdapter(Adapter):
         building_id = location_ids.pop()
         areas = location_ids
 
+        print(building_id)
+        print("*" * 50)
+        print(self.building_map[building_id])
         for area_id in areas:
             if self.dnac_location_map.get(area_id):
                 area_name = self.dnac_location_map[area_id]["name"]

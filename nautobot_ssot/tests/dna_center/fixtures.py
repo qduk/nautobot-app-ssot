@@ -41,3 +41,4 @@ DEVICE_DETAIL_MULTI_LEVEL_FIXTURE = load_json(
 )
 DEVICE_STACK_FIXTURE = load_json(path=f"{ROOT_DIR}/get_stack_network_device.json")
 DEVICE_STACK_DETAILS_FIXTURE = load_json(path=f"{ROOT_DIR}/get_stack_network_device_detail.json")
+DEVICE_STACK_STACK_DETAILS_FIXTURE = load_json(path=f"{ROOT_DIR}/get_stack_network_device_stack_detail.json")

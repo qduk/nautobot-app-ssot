@@ -1,5 +1,4 @@
-{
-  "response": [
+[
     {
       "memorySize": "NA",
       "family": "Switches and Hubs",
@@ -55,6 +54,4 @@
       "instanceTenantId": "1234a567891ca123abc1abcd",
       "id": "9f1e9ab8-3f07-4997-98a8-75e4dbb6120c"
     }
-  ],
-  "version": "1.0"
-}
+]

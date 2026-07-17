@@ -35,7 +35,8 @@ from nautobot_ssot.tests.dna_center.fixtures import (
     MULTI_LEVEL_LOCATION_FIXTURE,
     PORT_FIXTURE,
     DEVICE_STACK_FIXTURE,
-    DEVICE_STACK_DETAILS_FIXTURE
+    DEVICE_STACK_DETAILS_FIXTURE,
+    DEVICE_STACK_STACK_DETAILS_FIXTURE,
 )
 
 
@@ -360,4 +361,7 @@ class TestDnaCenterAdapterTestCase(TransactionTestCase):  # pylint: disable=too-
 
     def test_load_virtual_chassis(self):
         """Test Nautobot adapter load_virtual_chassis() functions."""
-        pass
+        self.dna_center_client.get_devices.return_value = DEVICE_STACK_FIXTURE
+        self.dna_center_client.get_device_detail.return_value = DEVICE_STACK_DETAILS_FIXTURE
+        self.dna_center.get_stack_detail = MagicMock()
+        self.dna_center.load_devices()
